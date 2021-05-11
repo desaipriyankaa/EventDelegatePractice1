@@ -10,10 +10,12 @@ namespace EventDelegatePractice1
         {
             SchoolHierarchyHandler sc1 = new SchoolHierarchyHandler(SchoolHandler1);
             SchoolHierarchyHandler sc2 = new SchoolHierarchyHandler(SchoolHandler2);
+            SchoolHierarchyHandler sc3 = new SchoolHierarchyHandler(SchoolHandler3);
 
             //sc1(2, SchoolType.Nursary);
             //sc2(1, SchoolType.Primary);
 
+            sc1 += sc2 + sc3;
             SchoolLevel(sc1);
         }
         static void SchoolLevel(SchoolHierarchyHandler sc)
@@ -30,6 +32,10 @@ namespace EventDelegatePractice1
         static void SchoolHandler2(int years, SchoolType schoolType)
         {
             Console.WriteLine("SchoolHandler2 called " + schoolType + " " + years);
+        }
+        static void SchoolHandler3(int years, SchoolType schoolType)
+        {
+            Console.WriteLine("SchoolHandler3 called " + schoolType + " " + years);
         }
     }
 }
