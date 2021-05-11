@@ -20,7 +20,9 @@ namespace EventDelegatePractice1
 
             Students student = new Students();
             student.StudentPassed += new SchoolHierarchyHandler(student_StudentPassed);
+            student.ClassPassed += new EventHandler(student_ClassPassed);
             student.DoScoolLevel(8, SchoolType.Secondary);
+
 
         }
 
@@ -28,6 +30,11 @@ namespace EventDelegatePractice1
         {
             Console.WriteLine(years+" "+schoolType);
             return years;
+        }
+
+        static void student_ClassPassed(object sender, EventArgs e)
+        {
+            Console.WriteLine("class has passed");
         }
 
         //static void SchoolLevel(SchoolHierarchyHandler sc)

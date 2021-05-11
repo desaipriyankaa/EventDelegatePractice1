@@ -15,6 +15,7 @@ namespace EventDelegatePractice1
         {
             for (int i = 0; i < years; i++)
             {
+                System.Threading.Thread.Sleep(1000);
                 OnStudentPassed(i + 1, schoolType);
             }
             OnClassPassed();
