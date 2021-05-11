@@ -3,7 +3,6 @@ using System;
 
 namespace EventDelegatePractice1
 {
-    public delegate void SchoolHierarchyHandler(int years, SchoolType schoolType);
     class Program
     { 
         static void Main(string[] args)
@@ -16,7 +15,8 @@ namespace EventDelegatePractice1
             //sc2(1, SchoolType.Primary);
 
             sc1 += sc2 + sc3;
-            SchoolLevel(sc1);
+            int finalYears = sc1(10, SchoolType.Secondary);
+            Console.WriteLine(finalYears);
         }
         static void SchoolLevel(SchoolHierarchyHandler sc)
         {
@@ -25,17 +25,20 @@ namespace EventDelegatePractice1
             sc(10, SchoolType.Secondary);
             sc(2, SchoolType.HigherEducation);
         }
-        static void SchoolHandler1(int years, SchoolType schoolType)
+        static int SchoolHandler1(int years, SchoolType schoolType)
         {
             Console.WriteLine("SchoolHandler1 called "+schoolType+" "+years);
+            return years;
         }
-        static void SchoolHandler2(int years, SchoolType schoolType)
+        static int SchoolHandler2(int years, SchoolType schoolType)
         {
             Console.WriteLine("SchoolHandler2 called " + schoolType + " " + years);
+            return years;
         }
-        static void SchoolHandler3(int years, SchoolType schoolType)
+        static int SchoolHandler3(int years, SchoolType schoolType)
         {
             Console.WriteLine("SchoolHandler3 called " + schoolType + " " + years);
+            return years+3;
         }
     }
 }
